@@ -6,6 +6,7 @@ todoApp.controller("todoCtrl",["$scope","$http",function($scope,$http){
     $scope.todos = data;
     console.log(data);
   });
+    //Function for adding a task
     $scope.addtodo = function(){
       var newtodo={
         done:false,
@@ -14,8 +15,17 @@ todoApp.controller("todoCtrl",["$scope","$http",function($scope,$http){
       $scope.todos.push(newtodo);
       $scope.todoText="";
     };
-
+    //Function for removing a task
     $scope.removetodo = function(start){
       $scope.todos.splice(start,1);
+    };
+
+    //Function for moving a task
+    $scope.move = function(index){
+      if(index == $scope.todos.length-1)
+        return;
+      var todo = $scope.todos[index];
+      $scope.todos.splice(index + 2,0,todo);
+      $scope.todos.splice(index,1);
     };
   }]);
