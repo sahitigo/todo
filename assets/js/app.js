@@ -21,9 +21,17 @@ todoApp.controller("todoCtrl",["$scope","$http",function($scope,$http){
     };
 
     //Function for moving a task
-    $scope.move = function(index){
-      if(index == $scope.todos.length-1)
-        return;
+    $scope.move = function(index,direction){
+      if(direction == 'up'){
+        if(index == 0){
+          return;
+        }
+        index = index-1 ;
+      }
+      if(direction == 'down'){
+       if(index == $scope.todos.length-1)
+          return;
+    }
       var todo = $scope.todos[index];
       $scope.todos.splice(index + 2,0,todo);
       $scope.todos.splice(index,1);
