@@ -1,18 +1,16 @@
-var todoApp = angular.module('todoApp',[]);
+var todoApp = angular.module('todoApp',['firebase']);
 
 //CONTROLLER
-todoApp.controller("todoCtrl",["$scope","$http",function($scope,$http){
-    $http.get('todo.json').success(function(data){
-    $scope.todos = data;
-    console.log(data);
-  });
+todoApp.controller("todoCtrl",["$scope","$firebaseArray",function($scope,$firebaseArray){
+  var ref = new Firebase('https://brilliant-fire-221.firebaseio.com/');
+ $scope.todos = $firebaseArray(ref);
     //Function for adding a task
     $scope.addtodo = function(){
       var newtodo={
         done:false,
         text:$scope.todoText
       };
-      $scope.todos.push(newtodo);
+      $scope.todos.$add(newtodo);
       $scope.todoText="";
     };
     //Function for removing a task
