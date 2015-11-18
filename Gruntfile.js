@@ -3,7 +3,7 @@ module.exports = function(grunt){
   'assets/css/src/app.css'
   ];
   var jsFiles = [
-  'assets/js/src/app.js',
+  'assets/js/app.js',
   ];
   grunt.initConfig({
     sass: {
