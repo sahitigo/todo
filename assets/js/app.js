@@ -1,4 +1,4 @@
-var todoApp = angular.module('todoApp',['firebase']);
+var todoApp = angular.module('todoApp',['firebase','ui.sortable']);
 
 //CONTROLLER
 todoApp.controller("todoCtrl",["$scope","$firebaseArray",function($scope,$firebaseArray){

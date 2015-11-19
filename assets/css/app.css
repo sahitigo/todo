@@ -4,4 +4,8 @@
 .container {
   width: 400px; }
 
+ul {
+  padding: 0px;
+  text-align: center; }
+
 /*# sourceMappingURL=app.css.map */

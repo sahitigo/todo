@@ -20,5 +20,8 @@
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "angular-ui-sortable": "^0.13.4"
   }
 }
