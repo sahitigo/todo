@@ -10,7 +10,7 @@ todoApp.controller("todoCtrl",["$scope","$firebaseArray",function($scope,$fireba
         done:false,
         text:$scope.todoText
       };
-      if(newtodo!==""){
+      if(newtodo.text!=undefined && newtodo.text!=""){
         $scope.todos.$add(newtodo);
         $scope.todoText="";
       }
