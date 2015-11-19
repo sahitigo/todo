@@ -18,7 +18,7 @@
     <input type="text" ng-model="todo.text" class="todo">
     <a href="" ng-click="move($index,'up')"><i class="fa fa-chevron-up fa-lg"></i></a>
     <a href="" ng-click="move($index,'down')"><i class="fa fa-chevron-down fa-lg"></i></a>
-    <a href="" ng-click="removetodo($index)"><i class="fa fa-trash-o fa-lg"></i></a>
+    <a href="" ng-click="removetodo(todo)"><i class="fa fa-trash-o fa-lg"></i></a>
 
   </div>
   <form ng-submit="addtodo()" class="list-group-item">

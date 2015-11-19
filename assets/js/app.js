@@ -3,19 +3,21 @@ var todoApp = angular.module('todoApp',['firebase']);
 //CONTROLLER
 todoApp.controller("todoCtrl",["$scope","$firebaseArray",function($scope,$firebaseArray){
   var ref = new Firebase('https://brilliant-fire-221.firebaseio.com/');
- $scope.todos = $firebaseArray(ref);
+  $scope.todos = $firebaseArray(ref);
     //Function for adding a task
     $scope.addtodo = function(){
       var newtodo={
         done:false,
         text:$scope.todoText
       };
-      $scope.todos.$add(newtodo);
-      $scope.todoText="";
+      if(newtodo!==""){
+        $scope.todos.$add(newtodo);
+        $scope.todoText="";
+      }
     };
     //Function for removing a task
-    $scope.removetodo = function(start){
-      $scope.todos.splice(start,1);
+    $scope.removetodo = function(todo){
+      $scope.todos.$remove(todo);
     };
 
     //Function for moving a task
@@ -28,10 +30,10 @@ todoApp.controller("todoCtrl",["$scope","$firebaseArray",function($scope,$fireba
       }
       if(direction == 'down'){
        if(index == $scope.todos.length-1)
-          return;
+        return;
     }
-      var todo = $scope.todos[index];
-      $scope.todos.splice(index + 2,0,todo);
-      $scope.todos.splice(index,1);
-    };
-  }]);
+    var todo = $scope.todos[index];
+    $scope.todos.splice(index + 2,0,todo);
+    $scope.todos.splice(index,1);
+  };
+}]);
